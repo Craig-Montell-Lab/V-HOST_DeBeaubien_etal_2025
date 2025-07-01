@@ -52,9 +52,13 @@ Run the following commands to analyze a new set of experiments.
 RELEVANT OUTPUTS
 ======================
 
-Preference_Index (this is a summary of the preference for Zone 2 versus Zone 1)
+Overall_Activity_Index (this is the average number of mosquitoes landed during the experiment)
 
-Host_Seeking_Index (this is the average number of mosquitoes host seeking during the experiment)
+Overall_Preference_Index (this is a summary of the preference for Zone 2 versus Zone 1, including all landing events)
+
+Movement_Index (this is the average number of mosquitoes landed and walking during the experiment)
+
+Movement_Preference_Index (this is a summary of the preference for Zone 2 versus Zone 1, including landing events with walking)
 
 "ExpID"_analysis.mat (this is a MATLAB file containing all of the variables generated during the analysis. This is helpful if you want to go back and look at the data more closely, or generate tracking figures, etc.)
 
