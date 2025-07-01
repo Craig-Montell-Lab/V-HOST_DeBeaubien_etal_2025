@@ -28,8 +28,12 @@ max_expected_blobs = 80; %max_expected_blobs = 80;
 
 % Make representative images? (1 = yes, 0 = no)
 repimage_logical = 0; %repimage_logical = 0;
-
 number_of_images = 250; %number_of_images = 250;
+
+% Make representative videos? (1 = yes, 0 = no)
+repvideo_logical = 0; %repvideo_logical = 0;
+number_of_videos = 50; %number_of_images = 250;
+
 
 %% Mosquito Movement
 %__________________________________________________________________________

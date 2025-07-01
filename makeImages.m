@@ -1,4 +1,4 @@
-%% This script is used to make small images at final coordinate positions to visually asses tracking performance
+%% This script is used to make small images at final coordinate positions to visually asses detection performance
 
 % This is a counting variable used increase with every captured image
 ticker = 1;

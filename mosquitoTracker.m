@@ -86,6 +86,15 @@ end
 cords(k+1:end) = [];
 all_cords = vertcat(cords{:});        
 
+%% Calculate Raw PI
+% This calculates the preference index from all observations WITHOUT
+% filtering for host-seeking behaviors
+raw_z1 = (sum(inpolygon(all_cords(:,1),all_cords(:,2),X(1:4),Y(1:4)))); 
+raw_z2 = (sum(inpolygon(all_cords(:,1),all_cords(:,2),X(5:8),Y(5:8))));
+raw_PI = round((raw_z2-raw_z1)/(raw_z2+raw_z1),2);
+
+
+
 %% Perform Track Analysis
 % This code goes through each frame and uses knnsearch to match coordinates
 % together to reconstruct trajectories
@@ -100,8 +109,9 @@ all_cords = vertcat(cords{:});
 %% Output File Handling
 
 %Prepeares output data
-round(size(final_pts,1)/(end_time*FR),2);
-SeekingScore = round(size(final_pts,1)/(end_time*FR),2);
+round(size(final_pts,1)/((end_time-start_time)*FR),2);
+SeekingScore = round(size(final_pts,1)/((end_time-start_time)*FR),2);
+ActivityScore = round((raw_z1+raw_z2)/((end_time-start_time)*FR),2);
 
 % Setup file output path
 outfile = strcat(output, '.mat');
@@ -113,14 +123,32 @@ if repimage_logical == 1
 else
 end
 
-% Prints analysis results
-Preference_Index = newPI;
-disp('Preference for Zone 2 versus Zone 1 (Preference Index):')
-Preference_Index
+% Generate and save representative videos
+if repvideo_logical == 1
+    makeVideos
+else
+end
 
-Host_Seeking_Index = SeekingScore;
-disp('Average # Host Seeking Mosquitoes per Frame (Host Seeking Index):')
-Host_Seeking_Index
+%% Prints analysis results
+% This value is the total distribution of mosquito observations across zone
+% 1 and zone 2 WITHOUT any filtering for walking/probing
+Overall_Preference_Index = raw_PI;
+disp('Overall Preference Index (OPI) for Zone 2 versus Zone 1:')
+Overall_Preference_Index
+
+% This value is the total number of mosquito obervations WITHOUT any
+% filtering for walking/probing
+Overall_Activity_Index = ActivityScore;
+disp('Overall Activity Index (OAI):')
+Overall_Activity_Index
+
+Movement_Preference_Index = newPI;
+disp('Movement Preference Index (MPI) for Zone 2 versus Zone 1:')
+Movement_Preference_Index
+
+Movement_Index = SeekingScore;
+disp('Movement Index (MI):')
+Movement_Index
 save(outpath);
 
 %Closes any figure windows
