@@ -66,7 +66,7 @@ Movement_Preference_Index (this is a summary of the preference for Zone 2 versus
 Optimizing Performance
 ======================
 
-	All of the modifiable variables that affect tracking performance are located in userVariables.m and can be modified to fit your experiment conditions. The most important factor for tracking performance is adequate image thresholding and segmentation. You can modify these variables to affect the performance of imageSegmentation.m, or, design a new segmentation algorithm using the Image Segmenter App (see MathWorks documentation). If you do this, make sure to replace imageSegmentation with your new algorithm:
+All of the modifiable variables that affect tracking performance are located in userVariables.m and can be modified to fit your experiment conditions. The most important factor for tracking performance is adequate image thresholding and segmentation. You can modify these variables to affect the performance of imageSegmentation.m, or, design a new segmentation algorithm using the Image Segmenter App (see MathWorks documentation). If you do this, make sure to replace imageSegmentation with your new algorithm:
 
 Line 60 (mosquitoTracker.m): [BW] = imageSegmentation(im,erode,sens); %Generates segmented image
 
@@ -74,11 +74,11 @@ Line 60 (mosquitoTracker.m): [BW] = imageSegmentation(im,erode,sens); %Generates
 
 Modify the "sizes" variable to set upper and lower limits on acceptable mosquito body sizes.
 
-	Tracking results can be saved as representative images using the makeImages.m function. To do this, change the repimage_logical to a value of 1 ("repimage_logical = 1") and specify the number of output images you would like ("number_of_images = 250"). This will generate snapshots of individually tracked mosquitoes and wide field views of all mosquitoes tracked. Used this information to evaluate tracking performance and make necessary modifications to tracking parameters. 
+Tracking results can be saved as representative images using the makeImages.m function. To do this, change the repimage_logical to a value of 1 ("repimage_logical = 1") and specify the number of output images you would like ("number_of_images = 250"). This will generate snapshots of individually tracked mosquitoes and wide field views of all mosquitoes tracked. Used this information to evaluate tracking performance and make necessary modifications to tracking parameters. 
 
-	Detection results can be saved as representative images using the makeImages.m function. To do this, change the repimage_logical to a value of 1 ("repimage_logical = 1") and specify the number of output images you would like ("number_of_images = 250"). This will generate snapshots of individually detected mosquitoes and wide field views of all mosquitoes detected. Use this information to evaluate detection performance and make necessary modifications to detection parameters. 
+Detection results can be saved as representative images using the makeImages.m function. To do this, change the repimage_logical to a value of 1 ("repimage_logical = 1") and specify the number of output images you would like ("number_of_images = 250"). This will generate snapshots of individually detected mosquitoes and wide field views of all mosquitoes detected. Use this information to evaluate detection performance and make necessary modifications to detection parameters. 
 
-	Tracking results can be saved as representative videos using the makeVideos.m function. To do this, change the repvideo_logical to a value of 1 ("repvideo_logical = 1") and specify the number of output videos you would like ("number_of_images = 250"). This will generate videos centered over a mosquito for its whole tracked position. Use this information to evaluate tracking performance and make necessary modifications to tracking parameters. 
+Tracking results can be saved as representative videos using the makeVideos.m function. To do this, change the repvideo_logical to a value of 1 ("repvideo_logical = 1") and specify the number of output videos you would like ("number_of_images = 250"). This will generate videos centered over a mosquito for its whole tracked position. Use this information to evaluate tracking performance and make necessary modifications to tracking parameters. 
 
 ======================
 USER-DEFINED VARIABLES
