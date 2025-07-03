@@ -76,6 +76,10 @@ Modify the "sizes" variable to set upper and lower limits on acceptable mosquito
 
 	Tracking results can be saved as representative images using the makeImages.m function. To do this, change the repimage_logical to a value of 1 ("repimage_logical = 1") and specify the number of output images you would like ("number_of_images = 250"). This will generate snapshots of individually tracked mosquitoes and wide field views of all mosquitoes tracked. Used this information to evaluate tracking performance and make necessary modifications to tracking parameters. 
 
+	Detection results can be saved as representative images using the makeImages.m function. To do this, change the repimage_logical to a value of 1 ("repimage_logical = 1") and specify the number of output images you would like ("number_of_images = 250"). This will generate snapshots of individually detected mosquitoes and wide field views of all mosquitoes detected. Use this information to evaluate detection performance and make necessary modifications to detection parameters. 
+
+	Tracking results can be saved as representative videos using the makeVideos.m function. To do this, change the repvideo_logical to a value of 1 ("repvideo_logical = 1") and specify the number of output videos you would like ("number_of_images = 250"). This will generate videos centered over a mosquito for its whole tracked position. Use this information to evaluate tracking performance and make necessary modifications to tracking parameters. 
+
 ======================
 USER-DEFINED VARIABLES
 ======================
@@ -93,6 +97,8 @@ framelimit - (determines the minimum number of frames in a trajectory that const
 FR - (specifies the framerate of input videos, adjust this as necessary)
 start_time - (specifies in seconds the start time of where analysis should begin)
 end_time - (specified in seconds the end time of where analysis should end)
+repvideo_logcal (determined whether or not to save representative tracking videos)
+number_of_videos (determines the number of representative videos to save)
 
 ======================
 Expected Performance
